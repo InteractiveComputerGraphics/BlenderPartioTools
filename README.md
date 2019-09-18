@@ -15,7 +15,7 @@ This add-on can be used to import and render the particle data generated with ou
 
 		python setup.py build_ext
     
-	in the directory partio_extension.
+	in the directory partio_extension. Note that you have to use the same Python version as your Blender version uses (for Blender 2.80 this is Python 3.7).
     
 2. Copy the generated file _partio.* (name depends on system) and the file partio.py to the Blender add-on folder.
 
