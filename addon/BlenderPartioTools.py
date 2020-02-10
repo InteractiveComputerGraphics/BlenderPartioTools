@@ -63,9 +63,9 @@ class PartioReader:
 			if totalParticles > 10000:
 				emitterObject.particle_systems[0].settings.display_method = 'DOT'
 
-						
-			degp = bpy.context.evaluated_depsgraph_get()
-			particle_systems = emitterObject.evaluated_get(degp).particle_systems
+			if depsgraph is None:
+				depsgraph = bpy.context.evaluated_depsgraph_get()
+			particle_systems = emitterObject.evaluated_get(depsgraph).particle_systems
 			particles = particle_systems[0].particles
 			
 			posAttr = None
