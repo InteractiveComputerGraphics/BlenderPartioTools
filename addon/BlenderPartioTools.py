@@ -27,7 +27,7 @@ class PartioReader:
 	def __init__( self, param ):
 		self.param = param
 
-	def __call__(self, scene):
+	def __call__(self, scene, depsgraph=None):
 		partioFile = self.param[0]
 		emitterObject = self.param[1]
 		
@@ -173,8 +173,10 @@ class PartioImporter(Operator, ImportHelper):
 
 		# add object for rendering particles
 		bpy.ops.mesh.primitive_uv_sphere_add(radius=1, enter_editmode=False, location=(0, 0, 0))
+		bpy.ops.object.shade_smooth()
 		sphereObj = bpy.context.active_object
-		sphereObj.hide_viewport = True
+		sphereObj.hide_set(True)
+		sphereObj.hide_viewport = False
 		sphereObj.hide_render = True
 		sphereObj.hide_select = True
 
